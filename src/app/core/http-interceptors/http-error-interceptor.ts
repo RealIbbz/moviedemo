@@ -12,14 +12,14 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     return next.handle(req).pipe(
-      catchError((error) => {
-        console.error(error);
-        if (error.error && Object.keys(error.error).length !== 0) {
-          this.notificationService.show('Error occurred: ' + error.error);
+      catchError((errorResponse) => {
+        console.error(errorResponse);
+        if (errorResponse.error && Object.keys(errorResponse.error).length !== 0) {
+          this.notificationService.show('Error occurred: ' + errorResponse.error);
         } else {
-          this.notificationService.show('Error occurred: ' + error.status + " - " + error.statusText);
+          this.notificationService.show('Error occurred: ' + errorResponse.status + " - " + errorResponse.statusText);
         }
-        return throwError(error.message);
+        return throwError(errorResponse.message);
       })
     )
   }

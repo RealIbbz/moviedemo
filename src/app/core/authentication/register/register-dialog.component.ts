@@ -24,7 +24,7 @@ import { NotificationService } from '../../services/notification-service';
           <mat-form-field style="width:100%" >
               <mat-label>Email</mat-label>
               <input matInput placeholder="Email" formControlName="email" name="email" type="email" autocomplete="email">
-              <mat-error *ngIf="submitted && f.username.errors">Must be in an email format and be less than 100 characters</mat-error>
+              <mat-error *ngIf="submitted && f.email.errors">Must be in an email format and be less than 100 characters</mat-error>
             </mat-form-field><br>
 
             <mat-form-field style="width:100%" >
