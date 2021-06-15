@@ -1,0 +1,11 @@
+<div fxLayout="row" fxLayoutAlign="center start">
+    <app-loading *ngIf="progressSpin"></app-loading>
+    <div fxLayout="column" fxFlex *ngIf="!progressSpin">
+        <div  class="wrapper title"><h1 style="font-size: xxx-large;">Movie Dashboard</h1></div>
+        <div fxFlex  fxLayoutGap="20px" fxLayout="row wrap" fxLayoutAlign="center start">
+            <ng-container *ngFor="let movie of movies">
+                <app-movies [movie]="movie"></app-movies>              
+            </ng-container>
+        </div>
+    </div>
+</div>

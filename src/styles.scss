@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; background-color: #eeeeee; background-image: url("/assets/movies.jpg"); }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:900");
+
+$shadow: 35;
+$primary: white;
+$secondary: black;
+
+.wrapper {
+  animation: sliding-background 40s linear infinite;
+  text-align: center;
+}
+
+
+
+@keyframes sliding-background {
+  0%,
+  100% {
+    background-position: 0 40%;
+  }
+
+  50% {
+    background-position: 100% 40%;
+  }
+}
+
+
+.title {
+    background-color: rgb(0,0,0,0.1); 
+    margin: 25px;  
+    color: $primary;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 1vw;
+    mix-blend-mode: lighten;
+    text-transform: uppercase;
+    $text-shadow: ();
+    @for $i from 1 through $shadow {
+      $text-shadow: $text-shadow, 1px * $i 1px * $i $secondary;
+    }
+    text-shadow: 0 0 0px, $text-shadow;
+  
+    &:before {
+      color: $primary;
+      content: attr(data-text);
+      margin-left: -1%;
+      margin-top: -1%;
+      position: absolute;
+    }
+  }
+
+  .sub-text {
+    font-size: 20px;
+    margin-top: 50px;
+    text-transform: none;
+    text-shadow: 0 0 black;
+    color: white;
+}

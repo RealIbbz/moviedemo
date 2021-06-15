@@ -1,0 +1,24 @@
+<mat-card  class="movie-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title class="movie-text-title">{{movie.title}}</mat-card-title>
+        <mat-card-subtitle>Release Date: {{movie.release_date}}</mat-card-subtitle>
+    </mat-card-header>
+    <div fxLayout="row" fxLayoutAlign="center start">
+        <img mat-card-image src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" class="movie-img">
+    </div>
+    <mat-card-content>
+        <p class="movie-text-content">
+        {{movie.overview}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <div fxFlex fxLayoutAlign="end center" fxLayoutGap="20px">
+            <button mat-raised-button (click)="onClickView(movie)">VIEW</button>
+            <button mat-fab color="primary" (click)="onClickToggleFavourite(movie)">
+                <mat-icon *ngIf="movie.favourite" matTooltip="Unfavourite Movie">star</mat-icon>
+                <mat-icon *ngIf="!movie.favourite" matTooltip="Favourite Movie">star_border</mat-icon>
+            </button>
+        </div>
+    </mat-card-actions>
+</mat-card>     

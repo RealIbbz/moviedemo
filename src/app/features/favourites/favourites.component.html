@@ -1,0 +1,14 @@
+<div fxLayout="row" fxLayoutAlign="center start">
+    <app-loading *ngIf="progressSpin"></app-loading>
+    <div fxLayout="column" fxLayoutAlign="start center" fxFlex *ngIf="!progressSpin">        
+        <div  class="wrapper title"><h1 style="font-size: xxx-large;">My Favourites</h1></div>
+        <div fxFlex  fxLayoutGap="20px" fxLayout="row wrap" fxLayoutAlign="center start">
+            <ng-container *ngFor="let movie of movieFavourites">
+                <app-movies [movie]="movie"></app-movies>              
+            </ng-container>
+            <div *ngIf="movieFavourites.length === 0" class="title">
+                <h3>You have no favourites selected currently.</h3>
+            </div>
+        </div>
+    </div>
+</div>

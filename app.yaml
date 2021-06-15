@@ -1,0 +1,15 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+handlers:
+- url: /(.*\.(gif|png|jpg|css|js|svg)(|\.map))$
+  static_files: dist/moviedemo/\1
+  upload: dist/moviedemo/(.*)(|\.map)
+- url: /assets/(.*\.(gif|png|jpg|svg))$
+  static_files: dist/moviedemo/assets/\1
+  upload: dist/moviedemo/assets/(.*)(|\.map)
+- url: /(.*)
+  static_files: dist/moviedemo/index.html
+  upload: dist/moviedemo/index.html
+skip_files:
+- ^(?!dist)

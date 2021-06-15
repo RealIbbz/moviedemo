@@ -1,0 +1,41 @@
+<mat-toolbar
+  class="basic"
+  color="primary"
+  layout="row"
+>
+  <mat-toolbar-row style="height:55px;" fxLayout="row" fxLayoutAlign="space-around center" >
+    <div fxFlex="21" fxLayout="row"  fxLayoutAlign="start center">
+      <button *ngIf="loggedIn" mat-icon-button (click)="toggleSideMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="logo"><img [src]="" style="max-width:100%;max-height:100%;"> </div>
+      <span style="margin: 0px 0px 0px 30px;" class="sub-text"><h4>MOVIE FAVOURITES</h4></span>
+    </div>
+    <div fxFlex="60" fxLayout="row"  fxLayoutAlign="start center" >
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="end center">
+      <h4 style="margin-right:30px" *ngIf="loggedIn">Welcome {{currentUser.name}}</h4>
+      <span fxLayout fxLayoutGap="20px">
+        <ng-container *ngIf="!loggedIn">
+          <button mat-raised-button (click)="onClickLogin()">LOGIN</button>
+          <button mat-raised-button (click)="onClickRegister()">SIGN UP</button>
+        </ng-container>
+      
+        
+        <button  *ngIf="loggedIn" mat-icon-button [matMenuTriggerFor]="auth">
+          <mat-icon>person_outline</mat-icon>
+        </button>
+        <mat-menu #auth="matMenu">
+            <!--<button mat-menu-item routerLink="/course-admin/user-details">
+                <mat-icon>account_box</mat-icon>
+                <span>My Account</span>
+            </button>-->
+          <button mat-menu-item (click)="onClickLogout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Sign out</span>
+          </button>
+        </mat-menu>
+      </span>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

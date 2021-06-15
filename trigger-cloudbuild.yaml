@@ -1,0 +1,11 @@
+steps:
+- name: node:12
+  entrypoint: npm
+  args: [ 'install' ]
+- name: node:12
+  entrypoint: npm
+  args: [ 'run', 'build', '--', '--configuration=$_TARGET_ENVIRONMENT' ]
+- name: gcr.io/cloud-builders/gcloud
+  args: [ 'app', 'deploy','--project', '$_TARGET_PROJECT_ID' ]
+timeout: '2000s'
+
