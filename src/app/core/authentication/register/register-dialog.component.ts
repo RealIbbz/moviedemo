@@ -65,9 +65,9 @@ export class RegisterDialogComponent {
     , private formBuilder: FormBuilder
     , @Inject(MAT_DIALOG_DATA) public data: {}) {
       this.loginForm = this.formBuilder.group({
-        email: ['', Validators.required, Validators.email, Validators.minLength(1), Validators.maxLength(100)],
-        fullName: ['', Validators.required , Validators.minLength(1), Validators.maxLength(200)],
-        password: ['', Validators.required , Validators.minLength(5), Validators.maxLength(50)]
+        email: ['', [Validators.required, Validators.email, Validators.minLength(1), Validators.maxLength(100)]],
+        fullName: ['', [Validators.required , Validators.minLength(1), Validators.maxLength(200)]],
+        password: ['', [Validators.required , Validators.minLength(5), Validators.maxLength(50)]]
       });
       this.progressSpin = false;
 
